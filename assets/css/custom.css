@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*
+0 - 600: Phone
+600 - 900: Tablet portrait
+900 - 1200: Tablet landscape
+1200 - 1800: Normal styles
+1800+ : Big Desktop
+1em = 16px
+The smaller device rules always should write below the bigger device rules
+Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Component
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+@import url(../icons/font-awesome/css/font-awesome.min.css);
+@import url(../icons/simple-line-icons/css/simple-line-icons.css);
+@import url(../icons/weather-icons/css/weather-icons.min.css);
+@import url(../icons/cryptocoins/css/cryptocoins.css);
+@import url(../icons/cryptocoins/css/cryptocoins-colors.css);
+@import url(../icons/linea-icons/linea.css);
+@import url(../icons/ionicons/css/ionicons.css);
+@import url(../icons/themify-icons/themify-icons.css);
+@import url(../icons/flag-icon-css/flag-icon.min.css);
+@import url(../icons/material-design-iconic-font/materialdesignicons.min.css);
+@import url(../icons/pe-icon-set-weather/css/pe-icon-set-weather.min.css);
+
+#productTable_wrapper {
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 25px;
+}
+.icon-custom {
+  font-size: 22px !important;
+}
+.gradient-3,
+.dropdown-mega-menu .ext-link.link-2 a,
+.header-right .icons .user-img .activity {
+  background-image: linear-gradient(230deg, #ffc480, #ff763b);
+}
+.gradient-8 {
+  background-image: linear-gradient(135deg, #ee9ae5 10%, #5961f9 100%);
+}
+.gradient-4 {
+  background-image: linear-gradient(230deg, #0e4cfd, #6a8eff);
+}
+.float-right {
+  float: right !important;
+}
