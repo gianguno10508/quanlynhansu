@@ -167,27 +167,27 @@ class Model extends Db
     }
 
     /**----------TEAM-------- */
-    public function GetAllTeam()
-    {
-        $sql = "SELECT * FROM team";
-        $con = $this->connect();
-        $ketqua = $con->query($sql);
+    // public function GetAllTeam()
+    // {
+    //     $sql = "SELECT * FROM team";
+    //     $con = $this->connect();
+    //     $ketqua = $con->query($sql);
 
-        if ($ketqua->num_rows == 0) {
-            $data = 0;
-        } else {
-            while ($datas = mysqli_fetch_assoc($ketqua)) {
-                $data[] = $datas;
-            }
-        }
-        return $data;
-    }
-    public function AddTeam($mateam, $tenteam, $thanhvien)
-    {
-        $sql = "INSERT INTO team(id, mateam, tenteam, thanhvien) VALUES(NULL,'$mateam', '$tenteam','$thanhvien')";
-        $conn = $this->connect();
-        return $conn->query($sql);
-    }
+    //     if ($ketqua->num_rows == 0) {
+    //         $data = 0;
+    //     } else {
+    //         while ($datas = mysqli_fetch_assoc($ketqua)) {
+    //             $data[] = $datas;
+    //         }
+    //     }
+    //     return $data;
+    // }
+    // public function AddTeam($mateam, $tenteam, $thanhvien)
+    // {
+    //     $sql = "INSERT INTO team(id, mateam, tenteam, thanhvien) VALUES(NULL,'$mateam', '$tenteam','$thanhvien')";
+    //     $conn = $this->connect();
+    //     return $conn->query($sql);
+    // }
     /**-----------END TEAM--------- */
 
 

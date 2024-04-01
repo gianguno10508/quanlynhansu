@@ -9,7 +9,7 @@ class Controller extends Model
         $dataUserRole = $this->GetDataUserRole();
         $dataLevel = $this->GetDataUserLevel();
         $dataStatus = $this->GetDataUserStatus();
-        $dataTeam = $this->GetAllTeam();
+        // $dataTeam = $this->GetAllTeam();
 
         function isLoggedIn()
         {

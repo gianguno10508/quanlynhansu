@@ -13,7 +13,7 @@
                 echo "Kết nối thất bại!";
                 exit();
             }else{
-                mysqli_set_charset($this->conn,'utf-8');
+                mysqli_set_charset($this->conn,'utf8');
             }
             return $this->conn;
         }
