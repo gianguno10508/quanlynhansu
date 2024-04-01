@@ -9,6 +9,8 @@ class Controller extends Model
         $dataUserRole = $this->GetDataUserRole();
         $dataLevel = $this->GetDataUserLevel();
         $dataStatus = $this->GetDataUserStatus();
+        $dataTeam = $this->GetAllTeam();
+
         function isLoggedIn()
         {
             return isset($_SESSION['manhanvien']);
@@ -325,8 +327,13 @@ class Controller extends Model
                             $manhanvien = $_SESSION['manhanvien'];
                             $dataSalaryNV = $this->GetSalaryUser($manhanvien);
                             $dataNV = $this->GetInforUser($manhanvien);
-                            if (isset($_GET['id'])) {
-                                $dataSalaryDetail = $this->GetDetailSalaryUser($_GET['id']);
+                            if (isset($_POST['save-salary'])) {
+                                $thucnhan = $_POST['luongchinh'] - $_POST['baohiem'] - $_POST['phat'] - $_POST['no'];
+                                $thangnam = $_POST['month'] . '/' . $_POST['year'];
+                                if ($this->AddSalary($_POST['manhanvien'], $thangnam, $_POST['luongchinh'], $_POST['baohiem'], $_POST['phat'], $_POST['no'], $thucnhan)) {
+                                    echo '<script>alert("Success");</script>';
+                                    header('location: http://localhost/quanlynhansu/?action=user');
+                                }
                             }
                         }
                         require_once('View/page/salary.php');
@@ -355,6 +362,41 @@ class Controller extends Model
                         }
                         require_once('View/page/viewsalary.php');
                         break;
+                    }
+                case 'update-salary': {
+                        if (isset($_SESSION['manhanvien'])) {
+                            $manhanvien = $_SESSION['manhanvien'];
+                            $dataSalaryNV = $this->GetSalaryUser($manhanvien);
+                            $dataNV = $this->GetInforUser($manhanvien);
+                            if (isset($_GET['id'])) {
+                                $dataSalaryDetail = $this->GetDetailSalaryUser($_GET['id']);
+                                if (isset($_POST['update-salary'])) {
+                                    $thucnhan = $_POST['luongchinh'] - $_POST['baohiem'] - $_POST['phat'] - $_POST['no'];
+                                    $thangnam = $_POST['month'] . '/' . $_POST['year'];
+                                    if ($this->UpdateSalary($_GET['id'], $manhanvien, $thangnam, $_POST['luongchinh'], $_POST['baohiem'], $_POST['phat'], $_POST['no'], $thucnhan)) {
+                                        echo '<script>alert("Success");</script>';
+                                        header('location: http://localhost/quanlynhansu/?action=user');
+                                    }
+                                }
+                            }
+                        }
+                        require_once('View/page/updatesalary.php');
+                        break;
+                    }
+                case 'delete-salary': {
+                        if (isset($_SESSION['manhanvien'])) {
+                            $manhanvien = $_SESSION['manhanvien'];
+                            $dataSalaryNV = $this->GetSalaryUser($manhanvien);
+                            $dataNV = $this->GetInforUser($manhanvien);
+                            if (isset($_GET['id'])) {
+                                if ($this->DeleteSalary($_GET['id'])) {
+                                    echo '<script>alert("Success");</script>';
+                                    header('location: http://localhost/quanlynhansu/?action=user');
+                                }
+                            }
+                            require_once('View/page/user.php');
+                            break;
+                        }
                     }
                 case 'profile': {
                         if (isset($_SESSION['manhanvien'])) {
@@ -399,6 +441,32 @@ class Controller extends Model
                             require_once('View/page/profile.php');
                             break;
                         }
+                    }
+
+                case 'team': {
+                        if (isset($_SESSION['manhanvien'])) {
+                            $manhanvien = $_SESSION['manhanvien'];
+                            $dataSalaryNV = $this->GetSalaryUser($manhanvien);
+                            $dataNV = $this->GetInforUser($manhanvien);
+                        }
+                        require_once('View/page/team.php');
+                        break;
+                    }
+                case 'new-team': {
+                        if (isset($_SESSION['manhanvien'])) {
+                            $manhanvien = $_SESSION['manhanvien'];
+                            $dataSalaryNV = $this->GetSalaryUser($manhanvien);
+                            $dataNV = $this->GetInforUser($manhanvien);
+                            if (isset($_POST['save-team'])) {
+                                $thanhvien = serialize($_POST['thanhvien']);
+                                if ($this->AddTeam($_POST['mateam'], $_POST['tenteam'], $thanhvien)) {
+                                    echo '<script>alert("Success");</script>';
+                                    header('location: http://localhost/quanlynhansu/?action=team');
+                                }
+                            }
+                        }
+                        require_once('View/page/addteam.php');
+                        break;
                     }
             }
         } else {

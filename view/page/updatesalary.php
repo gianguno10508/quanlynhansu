@@ -30,24 +30,15 @@
                                     <div class="card-header pb-0">
                                         <div class="d-flex align-items-center">
                                             <p class="mb-0">Thông tin lương</p>
-                                            <button class="btn btn-primary btn-sm ms-auto" type="submit" name="save-salary">Lưu Lại</button>
+                                            <button class="btn btn-primary btn-sm ms-auto" type="submit" name="update-salary">Lưu Lại</button>
                                         </div>
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="manhanvien" class="form-control-label">Nhân viên</label>
-                                                    <select name="manhanvien" class="form-control" id="manhanvien">
-                                                        <?php
-                                                        foreach ($dataUser as $key => $value) {
-                                                            # code...
-                                                        ?>
-                                                            <option value="<?php echo $value['manhanvien']; ?>"><?php echo $value['fullname'] ?></option>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </select>
+                                                    <label for="manhanvien" class="form-control-label">Mã nhân viên</label>
+                                                    <input class="form-control" type="text" id="manhanvien" name="manhanvien" disabled value="<?php echo $dataSalaryDetail['manhanvien'] ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -82,27 +73,33 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="baohiem" class="form-control-label">Bảo hiểm</label>
-                                                    <input class="form-control" type="number" id="baohiem" name="baohiem" placeholder="100000" value="">
+                                                    <input class="form-control" type="number" id="baohiem" name="baohiem" placeholder="100000" value="<?php echo $dataSalaryDetail['baohiem'] ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="phat" class="form-control-label">Phạt</label>
-                                                    <input class="form-control" type="number" id="phat" name="phat" placeholder="100000" value="">
+                                                    <input class="form-control" type="number" id="phat" name="phat" placeholder="100000" value="<?php echo $dataSalaryDetail['phat'] ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="no" class="form-control-label">Nợ</label>
-                                                    <input class="form-control" type="number" id="no" name="no" placeholder="100000" value="">
+                                                    <input class="form-control" type="number" id="no" name="no" placeholder="100000" value="<?php echo $dataSalaryDetail['no'] ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="luongchinh" class="form-control-label">Lương chính</label>
-                                                    <input class="form-control" placeholder="100000" name="luongchinh" min="0" id="luongchinh" type="number" value="">
+                                                    <input class="form-control" placeholder="100000" name="luongchinh" min="0" id="luongchinh" type="number" value="<?php echo $dataSalaryDetail['luongchinh'] ?>">
                                                 </div>
                                             </div>
+                                            <!-- <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="thucnhan" class="form-control-label">Thực nhận</label>
+                                                    <input class="form-control" type="number" id="thucnhan" name="thucnhan" placeholder="1000000" value="<?php echo $dataSalaryDetail['thucnhan'] ?>">
+                                                </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

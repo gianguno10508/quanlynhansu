@@ -147,9 +147,48 @@ class Model extends Db
         }
         return $data;
     }
+    public function AddSalary($manhanvien, $thangnam, $luongchinh, $baohiem, $phat, $no, $thucnhan)
+    {
+        $sql = "INSERT INTO salary(id, manhanvien, thangnam, luongchinh, baohiem, phat, no, thucnhan) VALUES(NULL,'$manhanvien', '$thangnam','$luongchinh', '$baohiem', '$phat', '$no', '$thucnhan')";
+        $conn = $this->connect();
+        return $conn->query($sql);
+    }
+    public function UpdateSalary($id, $manhanvien, $thangnam, $luongchinh, $baohiem, $phat, $no, $thucnhan)
+    {
+        $sql = "UPDATE salary SET manhanvien ='$manhanvien', thangnam = '$thangnam', luongchinh='$luongchinh', baohiem='$baohiem', phat='$phat', no='$no', thucnhan='$thucnhan' WHERE id = '$id'";
+        $conn = $this->connect();
+        return $conn->query($sql);
+    }
+    public function DeleteSalary($id)
+    {
+        $sql = "DELETE FROM salary WHERE id = '$id'";
+        $conn = $this->connect();
+        return $conn->query($sql);
+    }
 
+    /**----------TEAM-------- */
+    public function GetAllTeam()
+    {
+        $sql = "SELECT * FROM team";
+        $con = $this->connect();
+        $ketqua = $con->query($sql);
 
-
+        if ($ketqua->num_rows == 0) {
+            $data = 0;
+        } else {
+            while ($datas = mysqli_fetch_assoc($ketqua)) {
+                $data[] = $datas;
+            }
+        }
+        return $data;
+    }
+    public function AddTeam($mateam, $tenteam, $thanhvien)
+    {
+        $sql = "INSERT INTO team(id, mateam, tenteam, thanhvien) VALUES(NULL,'$mateam', '$tenteam','$thanhvien')";
+        $conn = $this->connect();
+        return $conn->query($sql);
+    }
+    /**-----------END TEAM--------- */
 
 
     /**--------------ROLE----------------- */

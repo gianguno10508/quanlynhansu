@@ -64,7 +64,7 @@
             }
             ?>
             <li class="nav-item">
-                <a class="nav-link " href="#">
+                <a class="nav-link " href="?action=team">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-group text-primary icon-custom"></i>
                     </div>
@@ -77,7 +77,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="?action=profile">
+                <a class="nav-link" href="?action=profile">
                     <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user text-primary icon-custom"></i>
                     </div>
